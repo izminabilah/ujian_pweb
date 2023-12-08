@@ -1,13 +1,13 @@
 var form = document.getElementById("myForm"),
     imgInput = document.querySelector(".img"),
     file = document.getElementById("imgInput"),
-    userName = document.getElementById("nama"),
-    age = document.getElementById("umur"),
-    city = document.getElementById("alamat"),
+    userName = document.getElementById("name"),
+    age = document.getElementById("age"),
+    city = document.getElementById("city"),
     email = document.getElementById("email"),
-    phone = document.getElementById("nohp"),
-    post = document.getElementById("kodePos"),
-    sDate = document.getElementById("tglMasuk"),
+    phone = document.getElementById("phone"),
+    post = document.getElementById("post"),
+    sDate = document.getElementById("sDate"),
     submitBtn = document.querySelector(".submit"),
     userInfo = document.getElementById("data"),
     modal = document.getElementById("userForm"),
@@ -77,29 +77,29 @@ function showInfo(){
 showInfo()
 
 
-function readInfo(pic, nama, umur, alamat, email, nohp, kodePos, tglMasuk){
+function readInfo(pic, name, age, city, email, phone, post, sDate){
     document.querySelector('.showImg').src = pic,
-    document.querySelector('#showName').value = nama,
-    document.querySelector("#showAge").value = umur,
-    document.querySelector("#showCity").value = alamat,
+    document.querySelector('#showName').value = name,
+    document.querySelector("#showAge").value = age,
+    document.querySelector("#showCity").value = city,
     document.querySelector("#showEmail").value = email,
-    document.querySelector("#showPhone").value = nohp,
-    document.querySelector("#showPost").value = kodePos,
-    document.querySelector("#showsDate").value = tglMasuk
+    document.querySelector("#showPhone").value = phone,
+    document.querySelector("#showPost").value = post,
+    document.querySelector("#showsDate").value = sDate
 }
 
 
-function editInfo(index, pic, nama, umur, alamat, email, nohp, kodePos, tglMasuk){
+function editInfo(index, pic, name, Age, City, Email, Phone, Post, Sdate){
     isEdit = true
     editId = index
     imgInput.src = pic
-    userName.value = nama
-    umur.value = umur
-    alamat.value = alamat
+    userName.value = name
+    age.value = Age
+    city.value =City
     email.value = Email,
-    nohp.value = nohp,
-    kodePos.value = kodePos,
-    tglMasuk.value = tglMasuk
+    phone.value = Phone,
+    post.value = Post,
+    sDate.value = Sdate
 
     submitBtn.innerText = "Update"
     modalTitle.innerText = "Update The Form"
@@ -121,12 +121,12 @@ form.addEventListener('submit', (e)=> {
     const information = {
         picture: imgInput.src == undefined ? "./image/Profile Icon.webp" : imgInput.src,
         employeeName: userName.value,
-        employeeAge: umur.value,
-        employeeCity: alamat.value,
+        employeeAge: age.value,
+        employeeCity: city.value,
         employeeEmail: email.value,
-        employeePhone: nohp.value,
-        employeePost: kodePos.value,
-        startDate: tglMasuk.value
+        employeePhone: phone.value,
+        employeePost: post.value,
+        startDate: sDate.value
     }
 
     if(!isEdit){
@@ -148,4 +148,6 @@ form.addEventListener('submit', (e)=> {
 
     imgInput.src = "./image/Profile Icon.webp"  
 
+    // modal.style.display = "none"
+    // document.querySelector(".modal-backdrop").remove()
 })
